@@ -1,0 +1,187 @@
+/*---------------- GENERAL STYLE ----------------*/
+
+body {
+	margin: auto;
+	width: 50%;
+	font-family: Arial, sans-serif;
+}
+
+/* Center image */
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1 {
+	color: #36C;
+	font-weight: normal;
+	letter-spacing: .3em;
+	margin-bottom: .5em;
+	text-transform: lowercase;
+	text-align: center;
+	padding: 0px 0;
+}
+
+h3 {
+	color: #36C;
+	font-weight: normal;
+	margin-bottom: 1em;
+}
+
+/*---------------- STYLE FORM ----------------*/
+
+.container {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	width: 100%
+}
+
+.col-25 {
+	float: left;
+	width: 25%;
+	margin-top: 6px;
+}
+
+.col-75 {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
+}
+
+/* input fields */
+
+input[type=text], select, input[type=time] {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+}
+
+/* submit buttons */
+
+.submitbutton {
+	background-color: #36C;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: left;
+	margin-top: 6px;
+}
+
+.submitbutton:hover {
+	background-color: #9999cc;
+}
+
+.changesite {
+	background-color: #cc6699;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: left;
+	margin-top: 6px;
+}
+
+.changesite:hover {
+	background-color: #bb9aab;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns in the form
+   stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.col-25, .col-75, input[type=submit] {
+		width: 100%;
+		margin-top: 0;
+	}
+}
+
+/*---------------- STYLE CHECKBOXES ----------------*/
+
+/* Custom label */
+.checkcontainer {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+  
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide browser's default checkbox */
+.checkcontainer input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* custom checkbox */
+
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #797979;
+}
+
+.checkcontainer:hover input ~ .checkmark {
+	background-color: #9999cc;
+}
+
+.checkcontainer input:checked ~ .checkmark {
+	background-color: #2851a3;
+}
+
+/* custom checkmark/indicator */
+
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+.checkcontainer input:checked ~ .checkmark:after {
+	display: block;
+}
+
+.checkcontainer .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+} 

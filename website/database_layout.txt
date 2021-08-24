@@ -1,0 +1,69 @@
+SmartAssist Database Layout
+
++-----------------------+
+| Tables_in_SmartAssist |
++-----------------------+
+| action                |
+| event                 |
+| voiceaction           |
++-----------------------+
+
+
+Table action:
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| actionId | int(5)      | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(50) | YES  |     | NULL    |                |
+| duration | int(5)      | YES  |     | 10      |                |
++----------+-------------+------+-----+---------+----------------+
+
+		+----------+----------+----------+
+		| actionId | name     | duration |
+		+----------+----------+----------+
+		|        1 | sleep    |       60 |
+		|        2 | social   |       60 |
+		|        3 | mobility |       60 |
+		|        4 | activity |       60 |
+		+----------+----------+----------+
+
+
+Table voiceaction:
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| actionId    | int(5)      | NO   | PRI | NULL    | auto_increment |
+| name        | varchar(50) | YES  |     | NULL    |                |
+| displayName | varchar(50) | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+
+		+----------+-----------------+-------------------------------------------------+
+		| actionId | name            | displayName                                     |
+		+----------+-----------------+-------------------------------------------------+
+		|        1 | call_doctor     | "Please call your doctor!"                      |
+		|        2 | someone_called  | "Someone called. Please check your phone!"      |
+		|        3 | take_medication | "It is time to take your medication!"           |
+		|        4 | take_pill       | "Don't forget to take your pill!"               |
+		|        5 | time_to_sleep   | "It's time to sleep. Please get ready for bed!" |
+		+----------+-----------------+-------------------------------------------------+
+
+
+Table event:
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| eventId     | int(5)      | NO   | PRI | NULL    | auto_increment |
+| name        | varchar(50) | YES  |     | NULL    |                |
+| actionId    | int(5)      | NO   | MUL | NULL    |                |
+| voiceaction | varchar(50) | YES  |     | NULL    |                |
+| starttime   | time        | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+
+		+---------+------------+----------+-------------+-----------+
+		| eventId | name       | actionId | voiceaction | starttime |
+		+---------+------------+----------+-------------+-----------+
+		|       5 | testevent1 |        1 | none        | 01:01:00  |
+		|       6 | testevent2 |        2 | call_doctor | 12:12:00  |
+		|       7 | test       |        1 | call_doctor | 14:57:00  |
+		|       8 | testtest   |        2 | call_doctor | 11:11:00  |
+		+---------+------------+----------+-------------+-----------+
